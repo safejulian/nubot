@@ -34,3 +34,6 @@
 /Users/jsimpson/dev/safejulian/nubot/nubot/obj/Debug/net8.0/nubot.pdb
 /Users/jsimpson/dev/safejulian/nubot/nubot/obj/Debug/net8.0/nubot.genruntimeconfig.cache
 /Users/jsimpson/dev/safejulian/nubot/nubot/obj/Debug/net8.0/ref/nubot.dll
+/Users/jsimpson/dev/safejulian/nubot/nubot/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/jsimpson/dev/safejulian/nubot/nubot/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/jsimpson/dev/safejulian/nubot/nubot/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll

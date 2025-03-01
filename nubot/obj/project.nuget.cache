@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "zcKp/C+vwF9IUjnLkcRLCr6dKkTiIXVNHiCcEBhHGjunlomnsA3IxTo76C7k8AuEkHtx976KqSc7M4jKfirIbw==",
+  "dgSpecHash": "iZXZPUlHykIMFsclKJ4l/Nx7naMgtfpMoqs6L1tgyeXXSr+Wi8jtm6NhUA55qY/mVAiSUblqm14hRSp8SXhzig==",
   "success": true,
   "projectFilePath": "/Users/jsimpson/dev/safejulian/nubot/nubot/nubot.csproj",
   "expectedPackageFiles": [
     "/Users/jsimpson/.nuget/packages/microsoft.aspnet.webapi.client/5.2.7/microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/microsoft.csharp/4.3.0/microsoft.csharp.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/microsoft.identitymodel.jsonwebtokens/5.2.4/microsoft.identitymodel.jsonwebtokens.5.2.4.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/microsoft.identitymodel.logging/5.2.4/microsoft.identitymodel.logging.5.2.4.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/microsoft.identitymodel.tokens/5.2.4/microsoft.identitymodel.tokens.5.2.4.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -57,6 +60,7 @@
     "/Users/jsimpson/.nuget/packages/system.net.primitives/4.3.0/system.net.primitives.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.net.sockets/4.3.0/system.net.sockets.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/system.private.datacontractserialization/4.3.0/system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
@@ -73,6 +77,8 @@
     "/Users/jsimpson/.nuget/packages/system.runtime.numerics/4.3.0/system.runtime.numerics.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.runtime.serialization.formatters/4.3.0/system.runtime.serialization.formatters.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.runtime.serialization.primitives/4.3.0/system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/system.runtime.serialization.xml/4.3.0/system.runtime.serialization.xml.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/system.security.claims/4.3.0/system.security.claims.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.algorithms/4.3.0/system.security.cryptography.algorithms.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.cng/4.3.0/system.security.cryptography.cng.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.csp/4.3.0/system.security.cryptography.csp.4.3.0.nupkg.sha512",
@@ -80,6 +86,7 @@
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.openssl/4.3.0/system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.primitives/4.3.0/system.security.cryptography.primitives.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.security.cryptography.x509certificates/4.3.0/system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/system.security.principal/4.3.0/system.security.principal.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.text.regularexpressions/4.3.0/system.text.regularexpressions.4.3.0.nupkg.sha512",
@@ -89,9 +96,20 @@
     "/Users/jsimpson/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/jsimpson/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
-    "/Users/jsimpson/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "/Users/jsimpson/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "/Users/jsimpson/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.IdentityModel.JsonWebTokens' 5.2.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "Microsoft.IdentityModel.JsonWebTokens",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
     {
       "code": "NU1903",
       "level": "Warning",
