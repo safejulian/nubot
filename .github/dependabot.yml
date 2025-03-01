@@ -5,10 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget"
     directory: "/nubot"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 0 # security fixes only
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
