@@ -21,7 +21,7 @@ dotnet list package --include-transitive --vulnerable
  - checking in nuget files is subpar
  - packages.config is a pre-2017 approach
 
-## dependabot
+## dependabot update PRs
   It's not clear how Dependabot can be configured to do transitive dependency updates.
 
 ```
