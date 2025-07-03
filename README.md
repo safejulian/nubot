@@ -20,7 +20,7 @@ dotnet list package --include-transitive --vulnerable
  - Until [this issue is resolved](https://github.com/microsoft/component-detection/issues/1089) one can only use the project.assets.json file for discovery.
  - checking in nuget files is subpar
  - packages.config is a pre-2017 approach
-
+(the issue is still open, but you can enable Nuget Dependency Submission now)
 ## dependabot update PRs
   It's not clear how Dependabot can be configured to do transitive dependency updates.
 
