@@ -8,20 +8,23 @@ on:
       - main
   schedule:
     - cron: '0 0 * * 0' # Weekly on Sundays at midnight
+env:
+  HOMEBREW_PATH: "/home/linuxbrew/.linuxbrew"
 
 jobs:
   generate-sbom-and-upload:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-2022
     steps:
-      - name: Install CDXGen
-        run: |
-          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
-          brew install cdxgen
 
       - name: Checkout code
         uses: actions/checkout@v5
         with:
           persist-credentials: false
+
+      - name: Install CDXGen
+        run: |
+          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
+          brew install cdxgen
 
       - name: Generate SBOM
         run: |
