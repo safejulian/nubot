@@ -29,7 +29,7 @@ jobs:
       - name: Install CDXGen
         run: |
           eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
-          brew install cdxgen
+          brew install cdxgen || true
 
       - name: Generate SBOM
         run: |
