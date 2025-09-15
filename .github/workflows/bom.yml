@@ -1,0 +1,38 @@
+name: Bill of Materials
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0' # Weekly on Sundays at midnight
+
+jobs:
+  generate-sbom-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install CDXGen
+        run: |
+          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
+          brew install cdxgen
+
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Generate SBOM
+        run: |
+          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
+          cdxgen -r . -o sbom.json
+
+      - name: Upload SBOM to GitHub
+        run: |
+          gh api \
+          --method POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /repos/${{ github.repository }}/dependency-graph/snapshots \
+          --input sbom.json
