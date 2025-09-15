@@ -11,9 +11,14 @@ on:
 env:
   HOMEBREW_PATH: "/home/linuxbrew/.linuxbrew"
 
+permissions:
+    contents: read
+    security-events: write
+    actions: read
+
 jobs:
   generate-sbom-and-upload:
-    runs-on: ubuntu-2022
+    runs-on: ubuntu-latest
     steps:
 
       - name: Checkout code
