@@ -1,4 +1,4 @@
-name: Component Detection
+name: RetireJS Dependency Submission
 on:
   push:
     branches:
@@ -19,7 +19,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Component detection
-        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
         with:
-          detectorsFilter: Npm
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Retire.js
+        run: npm install -g retire
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          retire --path . --outputformat cyclonedx --output retire-sbom.json
+
+      - name: SBOM upload
+        uses: advanced-security/spdx-dependency-submission-action@v0.1.1
+        with:
+          filePath: retire-sbom.json
