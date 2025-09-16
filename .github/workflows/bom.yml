@@ -29,7 +29,8 @@ jobs:
 
       - name: Generate CycloneDX SBOM
         run: |
-          retire --path . --outputformat cyclonedx --outputpath retire-sbom.json
+          retire --path . --outputformat cyclonedx --outputpath retire-sbom.json \
+          --exitwith 0
 
       - name: SBOM upload
         uses: advanced-security/spdx-dependency-submission-action@v0.1.1
