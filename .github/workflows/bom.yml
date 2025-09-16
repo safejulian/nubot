@@ -1,4 +1,4 @@
-name: Bill of Materials
+name: Component Detection
 on:
   push:
     branches:
@@ -8,41 +8,16 @@ on:
       - main
   schedule:
     - cron: '0 0 * * 0' # Weekly on Sundays at midnight
-env:
-  HOMEBREW_PATH: "/home/linuxbrew/.linuxbrew"
+
 
 permissions:
-    contents: write
-    security-events: write
-    actions: read
+  id-token: write
+  contents: write
 
 jobs:
-  generate-sbom-and-upload:
+  dependency-submission:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-
-      - name: Install CDXGen
-        run: |
-          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
-          brew install cdxgen || true
-
-      - name: Generate SBOM
-        run: |
-          eval "$(${{ env.HOMEBREW_PATH }}/bin/brew shellenv)"
-          cdxgen -r . -o sbom.json
-
-      - name: Upload SBOM to GitHub
-        run: |
-          gh api \
-          --method POST \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          /repos/${{ github.repository }}/dependency-graph/snapshots \
-          --input sbom.json
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - uses: actions/checkout@v3
+      - name: Component detection
+        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
