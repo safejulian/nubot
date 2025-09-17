@@ -20,12 +20,17 @@ retirejsData.forEach(function(item) {
 const submission = {
     sha: sha,
     ref: ref,
+    version: 0,
+    job: {
+        "correlator": process.env.GITHUB_REPOSITORY || 'foo/bar',
+        "id": process.env.GITHUB_RUN_ID || '123456789'
+    },
     scanned: new Date().toISOString(),
     detector: {
         name: 'retirejs',
         version: '5.3.0',
         url: 'https://retirejs.github.io/retire.js/'
     },
-    manifests: {"retirejs": {"resolved": manifests}}
+    manifests: {"retirejs": {name: "retirejs", "resolved": manifests}}
 };
 console.log(JSON.stringify(submission));
