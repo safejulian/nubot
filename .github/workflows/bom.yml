@@ -37,6 +37,7 @@ jobs:
           brew install cyclonedx/cyclonedx/cyclonedx-cli
           cyclonedx convert --input-file retire-sbom.xml --input-format xml \
           --output-format spdxjson --output-file retire.spdx.json
+          cat retire.spdx.json
 
       - name: SBOM upload
         uses: advanced-security/spdx-dependency-submission-action@v0.1.1
