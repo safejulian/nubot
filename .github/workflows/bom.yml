@@ -29,9 +29,14 @@ jobs:
 
       - name: Generate CycloneDX SBOM
         run: |
-          retire --path . --outputformat cyclonedx --outputpath retire-sbom.json \
+          retire --path . --outputformat cyclonedx --outputpath retire-sbom.xml \
           --exitwith 0
-          cat retire-sbom.json
+      - name: Convert CycloneDX to SPDX JSON
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install cyclonedx/cyclonedx/cyclonedx-cli
+          cyclonedx convert --input-file retire-sbom.xml --input-format xml \
+          --output-format spdxjson --output-file retire-sbom.json
 
       - name: SBOM upload
         uses: advanced-security/spdx-dependency-submission-action@v0.1.1
