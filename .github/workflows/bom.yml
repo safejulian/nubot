@@ -31,6 +31,7 @@ jobs:
         run: |
           retire --path . --outputformat cyclonedx --outputpath retire-sbom.json \
           --exitwith 0
+          cat retire-sbom.json
 
       - name: SBOM upload
         uses: advanced-security/spdx-dependency-submission-action@v0.1.1
