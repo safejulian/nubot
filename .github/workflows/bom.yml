@@ -36,9 +36,9 @@ jobs:
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install cyclonedx/cyclonedx/cyclonedx-cli
           cyclonedx convert --input-file retire-sbom.xml --input-format xml \
-          --output-format spdxjson --output-file retire-sbom.json
+          --output-format spdxjson --output-file retire.spdx.json
 
       - name: SBOM upload
         uses: advanced-security/spdx-dependency-submission-action@v0.1.1
         with:
-          filePath: retire-sbom.json
+          filePath: retire.spdx.json
