@@ -27,19 +27,18 @@ jobs:
       - name: Install Retire.js
         run: npm install -g retire
 
-      - name: Generate CycloneDX SBOM
+      - name: Generate Insecure dependencies
         run: |
-          retire --path . --outputformat cyclonedx --outputpath retire-sbom.xml \
+          retire --path . --outputformat json --outputpath retire.json \
           --exitwith 0
-      - name: Convert CycloneDX to SPDX JSON
+          cat retire.json
+      - name: Convert Retire.js JSON to Dependency Submission Format
         run: |
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install cyclonedx/cyclonedx/cyclonedx-cli
-          cyclonedx convert --input-file retire-sbom.xml --input-format xml \
-          --output-format spdxjson --output-file retire.spdx.json
-          cat retire.spdx.json
+          node manifest.js > submission.json
 
-      - name: SBOM upload
-        uses: advanced-security/spdx-dependency-submission-action@v0.1.1
-        with:
-          filePath: .
+      - name: Submission Upload
+        run: |
+          gh api --method POST -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /repos/OWNER/REPO/dependency-graph/snapshots \
+          --input submission.json
