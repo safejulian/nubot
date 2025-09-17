@@ -1,0 +1,38 @@
+name: RetireJS Dependency Submission
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0' # Weekly on Sundays at midnight
+
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  dependency-submission:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Retire.js
+        run: npm install -g retire
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          retire --path . --outputformat cyclonedx --outputpath retire-sbom.json \
+          --exitwith 0
+
+      - name: SBOM upload
+        uses: advanced-security/spdx-dependency-submission-action@v0.1.1
+        with:
+          filePath: retire-sbom.json
